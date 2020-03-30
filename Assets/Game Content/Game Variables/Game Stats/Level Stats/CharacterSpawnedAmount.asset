@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 896d054da52094f6095f1c8ba3e5ed7f, type: 3}
-  m_Name: Hedgehog
+  m_Script: {fileID: 11500000, guid: 0c1dbba839ae6f04eb24eac91b2dd892, type: 3}
+  m_Name: CharacterSpawnedAmount
   m_EditorClassIdentifier: 
-  walkingSpeed:
-    UseConstant: 1
-    ConstantValue: 1
-    Variable: {fileID: 0}
-  prefab: {fileID: 1703991198122550, guid: 26ac36ced61e54e46b3d71211e8d016c, type: 3}
+  InitialValue: 0
+  RuntimeValue: 0

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3425b24a09549f1a4ea19ee8eb809d, type: 3}
+  m_Name: Level 01 Spec
+  m_EditorClassIdentifier: 
+  Character: {fileID: 11400000, guid: 6ad6ce69b657d4ce4942ff83fc8bb2cc, type: 2}
+  SpawnAmount:
+    UseConstant: 1
+    ConstantValue: 5
+    Variable: {fileID: 0}
+  SpawnFrequencyInSeconds:
+    UseConstant: 1
+    ConstantValue: 5
+    Variable: {fileID: 0}
