@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed:
     UseConstant: 1
-    ConstantValue: 1
+    ConstantValue: 2
     Variable: {fileID: 0}
   prefab: {fileID: 1703991198122550, guid: 26ac36ced61e54e46b3d71211e8d016c, type: 3}

@@ -2,7 +2,7 @@
 
 public class CharacterInfo : MonoBehaviour
 {
-    private FloatReference walkingSpeed;
+    private FloatReference walkingSpeed = new FloatReference() { Value = 0 };
 
-    public FloatReference WalkingSpeed { get => walkingSpeed; set => walkingSpeed = value; }
+    public float WalkingSpeed { get => walkingSpeed.Value; set => walkingSpeed.Value = value; }
 }

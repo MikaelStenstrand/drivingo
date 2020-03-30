@@ -15,7 +15,7 @@ public class CharacterSpec : ScriptableObject
         GameObject characterGO = Instantiate(prefab);
         CharacterInfo characterInfo = characterGO.GetComponent<CharacterInfo>();
 
-        characterInfo.WalkingSpeed = walkingSpeed;
+        characterInfo.WalkingSpeed = walkingSpeed.Value;
         return characterGO;
     }
 
