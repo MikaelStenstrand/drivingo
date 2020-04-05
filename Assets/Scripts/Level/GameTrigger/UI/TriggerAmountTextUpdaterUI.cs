@@ -32,13 +32,13 @@ public class TriggerAmountTextUpdaterUI : MonoBehaviour
     {
         if (gameTrigger != null)
         {
-            if (gameTrigger.CurrentAmount <= gameTrigger.TargetAmount)
+            if (gameTrigger.CurrentAmount.Value <= gameTrigger.TargetAmount.Value)
             {
-                textField.text = $"{gameTrigger.CurrentAmount.ToString()}/{gameTrigger.TargetAmount.ToString()}";
+                textField.text = $"{gameTrigger.CurrentAmount.Value.ToString()}/{gameTrigger.TargetAmount.Value.ToString()}";
             }
             else
             {
-                textField.text = $"+{(gameTrigger.CurrentAmount-gameTrigger.TargetAmount).ToString()}";
+                textField.text = $"+{(gameTrigger.CurrentAmount.Value - gameTrigger.TargetAmount.Value).ToString()}";
             }
         }
     }

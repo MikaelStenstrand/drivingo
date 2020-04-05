@@ -6,8 +6,12 @@ public class GoalGameTrigger : MonoBehaviour, IGameTrigger
     [SerializeField]
     private LevelSpec levelSpec;
 
-    public float TargetAmount { get => levelSpec.TargetGoalAmount.Value; set => levelSpec.TargetGoalAmount.Value = value; }
-    public float CurrentAmount { get; private set; } = 0;
+    public FloatReference TargetAmount;
+    FloatReference IGameTrigger.TargetAmount { get => TargetAmount; set => TargetAmount = value; }
+
+    public FloatReference CurrentAmount;
+    FloatReference IGameTrigger.CurrentAmount => CurrentAmount;
+
 
     [SerializeField]
     private GameEvent triggerEvent;
@@ -16,6 +20,15 @@ public class GoalGameTrigger : MonoBehaviour, IGameTrigger
     private GameEvent targetAmountTriggerEvent;
 
     const string CHARATER_TAG = "Character";
+
+    private void Awake()
+    {
+        if (TargetAmount.Value <= 0)
+        {
+            TargetAmount = levelSpec.TargetGoalAmount;
+        }
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,8 +45,8 @@ public class GoalGameTrigger : MonoBehaviour, IGameTrigger
 
     public void OnTrigger(Collider2D collision)
     {
-        CurrentAmount++;
-        if (CurrentAmount >= TargetAmount)
+        CurrentAmount.Value++;
+        if (CurrentAmount.Value >= TargetAmount.Value)
         {
             OnTargetAmountTrigger();
         }

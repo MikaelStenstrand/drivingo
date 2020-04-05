@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: 610647393}
   - component: {fileID: 610647395}
   - component: {fileID: 610647394}
+  - component: {fileID: 610647396}
   m_Layer: 5
   m_Name: Score Text
   m_TagString: Untagged
@@ -856,6 +857,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610647392}
   m_CullTransparentMesh: 0
+--- !u!114 &610647396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610647392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340459ab14c0a44e092f8fad8bba9002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSpec: {fileID: 11400000, guid: b842385816e8b462d97cf66e6bfb63d7, type: 2}
+  charactersReachedGoal:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 62df2443f41754565b229fbf1f1a3fc5, type: 2}
 --- !u!1 &760349997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1233,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSpec: {fileID: 11400000, guid: b842385816e8b462d97cf66e6bfb63d7, type: 2}
+  TargetAmount:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  CurrentAmount:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 62df2443f41754565b229fbf1f1a3fc5, type: 2}
   triggerEvent: {fileID: 11400000, guid: a16ccf074824947e99fd63e33a485c68, type: 2}
   targetAmountTriggerEvent: {fileID: 11400000, guid: f2334b331a1a44f82b6b0b40ccda8c11,
     type: 2}
@@ -4002,6 +4028,7 @@ GameObject:
   - component: {fileID: 1388637534}
   - component: {fileID: 1388637536}
   - component: {fileID: 1388637535}
+  - component: {fileID: 1388637537}
   m_Layer: 5
   m_Name: Replay Button
   m_TagString: Untagged
@@ -4064,6 +4091,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388637533}
   m_CullTransparentMesh: 0
+--- !u!114 &1388637537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388637533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1388637535}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1875569197}
+        m_MethodName: ResetLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1396256299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,7 +4159,7 @@ GameObject:
   - component: {fileID: 1396256300}
   - component: {fileID: 1396256304}
   m_Layer: 5
-  m_Name: HUD
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4351,6 +4432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1519906436}
   - component: {fileID: 1519906437}
+  - component: {fileID: 1519906438}
   m_Layer: 5
   m_Name: Level Complete Panel
   m_TagString: Untagged
@@ -4376,7 +4458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.0999756, y: 1.1000061}
+  m_AnchoredPosition: {x: 1.0999756, y: 1.0999756}
   m_SizeDelta: {x: -638.7, y: -214.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1519906437
@@ -4387,6 +4469,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519906435}
   m_CullTransparentMesh: 0
+--- !u!114 &1519906438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519906435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292b95e740dd94f9ea14c54dbe741a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1557259213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,6 +4765,7 @@ GameObject:
   - component: {fileID: 1875569194}
   - component: {fileID: 1875569196}
   - component: {fileID: 1875569195}
+  - component: {fileID: 1875569197}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -4744,6 +4839,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1875569197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875569193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f17b9b39c588455f9ede5ecc03ed875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2023324090
 GameObject:
   m_ObjectHideFlags: 0

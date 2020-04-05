@@ -2,12 +2,12 @@
 
 public interface IGameTrigger
 {
-    float TargetAmount
+    FloatReference TargetAmount
     {
         get;
         set;
     }
-    float CurrentAmount
+    FloatReference CurrentAmount
     {
         get;
     }
