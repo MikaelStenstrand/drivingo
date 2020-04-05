@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 1191715519586865101}
   m_Layer: 0
   m_Name: Hedgehog
-  m_TagString: Player
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101776fca2c714d23966bc2bbf7ff17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 40
+  movementAmplifier: 10
 --- !u!114 &871695555
 MonoBehaviour:
   m_ObjectHideFlags: 0
