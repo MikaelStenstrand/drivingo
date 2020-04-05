@@ -7,6 +7,7 @@ public class LevelSpec : ScriptableObject
     public CharacterSpec Character = null;
     public FloatReference SpawnAmount = new FloatReference() { Value = 5.0f };
     public FloatReference SpawnFrequencyInSeconds = new FloatReference() { Value = 5.0f };
+    public FloatReference TargetGoalAmount = new FloatReference() { Value = 1.0f };
 
     // To be added later
     // time countdown
