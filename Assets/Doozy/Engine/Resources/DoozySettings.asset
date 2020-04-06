@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectedLanguage: 1
   AutoDisableUIInteractions: 1
-  DebugBackButton: 0
+  DebugBackButton: 1
   DebugGameEventListener: 0
-  DebugGameEventManager: 0
+  DebugGameEventManager: 1
   DebugGestureListener: 0
   DebugGraphController: 0
   DebugKeyToAction: 0
   DebugKeyToGameEvent: 0
-  DebugOrientationDetector: 0
+  DebugOrientationDetector: 1
   DebugProgressor: 0
   DebugProgressorGroup: 0
   DebugSceneDirector: 0
@@ -30,12 +30,12 @@ MonoBehaviour:
   DebugSoundyManager: 0
   DebugSoundyPooler: 0
   DebugTouchDetector: 0
-  DebugUIButton: 0
+  DebugUIButton: 1
   DebugUIButtonListener: 0
   DebugUICanvas: 0
   DebugUIDrawer: 0
   DebugUIDrawerListener: 0
-  DebugUIPopup: 0
+  DebugUIPopup: 1
   DebugUIPopupManager: 0
   DebugUIToggle: 0
   DebugUIView: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
   SpeedBasedAnimations: 0
   UseBackButton: 1
   UseMasterAudio: 0
-  UseOrientationDetector: 0
+  UseOrientationDetector: 1
   UsePlaymaker: 0
   UseTextMeshPro: 0
-  AssetDatabaseSaveAssetsNeeded: 1
+  AssetDatabaseSaveAssetsNeeded: 0
   AssetDatabaseRefreshNeeded: 0
