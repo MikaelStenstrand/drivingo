@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(TextMeshPro))]
 public class TriggerAmountTextUpdaterUI : MonoBehaviour
 {
+    [SerializeField]
+    private bool isGoal;
+
     private TextMeshPro textField;
 
     private IGameTrigger gameTrigger;
@@ -38,7 +41,8 @@ public class TriggerAmountTextUpdaterUI : MonoBehaviour
             }
             else
             {
-                textField.text = $"+{(gameTrigger.CurrentAmount.Value - gameTrigger.TargetAmount.Value).ToString()}";
+                string prefix = isGoal ? "+" : "-";
+                textField.text = $"{prefix}{(gameTrigger.CurrentAmount.Value - gameTrigger.TargetAmount.Value).ToString()}";
             }
         }
     }

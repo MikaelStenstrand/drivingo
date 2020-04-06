@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class GoalGameTrigger : MonoBehaviour, IGameTrigger
+public class GameTrigger : MonoBehaviour, IGameTrigger
 {
     [SerializeField]
     private LevelSpec levelSpec;
