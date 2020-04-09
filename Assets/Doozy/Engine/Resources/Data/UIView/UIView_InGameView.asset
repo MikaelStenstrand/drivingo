@@ -15,4 +15,4 @@ MonoBehaviour:
   CategoryName: InGameView
   DatabaseType: 2
   Names:
-  - ExampleView
+  - AbilityListView
