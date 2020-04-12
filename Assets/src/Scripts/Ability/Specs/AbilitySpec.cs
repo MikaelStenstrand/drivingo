@@ -7,20 +7,27 @@ public class AbilitySpec : ScriptableObject
     new private string name;
     [SerializeField]
     private string description;
-    [SerializeField]
-    private Sprite UISprite;
+    public Sprite UISprite { get; private set; }
     [SerializeField]
     private GameObject characterPrefab;
     // placement effect
     private string condition = "Player";
 
-    public bool UseAbility()
-    {
-        Debug.Log("USE ABILITY");
+    // abilityInitStates[]
+    // speed
+    // movementTrajectory
 
-        return true;
+    private Vector3 positionOutsideOfScreen;
+
+    private void OnEnable()
+    {
+        positionOutsideOfScreen = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
-
+    public void InitAbility()
+    {
+        GameObject GO = Instantiate(characterPrefab, positionOutsideOfScreen, Quaternion.identity);
+        GO.AddComponent(typeof(AbilityCreator));
+    }
 
 }
