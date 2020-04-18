@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Flying Bird
   description: description
-  UISprite: {fileID: 21300000, guid: 19f61398bbc48436281bdb79a1e898d3, type: 3}
   characterPrefab: {fileID: 1291749483851068, guid: 18ffb5117c4a29241b055baf2c1dc996,
     type: 3}
+  defaultSpeed:
+    UseConstant: 1
+    ConstantValue: 3
+    Variable: {fileID: 0}
+  activeSpeed:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}

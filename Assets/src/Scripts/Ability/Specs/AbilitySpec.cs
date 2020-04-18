@@ -10,12 +10,14 @@ public class AbilitySpec : ScriptableObject
     public Sprite UISprite { get; private set; }
     [SerializeField]
     private GameObject characterPrefab;
-    // placement effect
-    private string condition = "Player";
+    [SerializeField]
+    private FloatReference defaultSpeed;
+    [SerializeField]
+    private FloatReference activeSpeed;
 
-    // abilityInitStates[]
-    // speed
-    // movementTrajectory
+
+    // placement effect
+    private string condition = "Character";
 
     private Vector3 positionOutsideOfScreen;
 
@@ -27,7 +29,8 @@ public class AbilitySpec : ScriptableObject
     public void InitAbility()
     {
         GameObject GO = Instantiate(characterPrefab, positionOutsideOfScreen, Quaternion.identity);
-        GO.AddComponent(typeof(AbilityCreator));
+        AbilityCreator abilityCreator = GO.AddComponent(typeof(AbilityCreator)) as AbilityCreator;
+        abilityCreator.condition = condition;
     }
 
 }

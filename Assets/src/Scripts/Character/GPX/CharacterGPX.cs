@@ -22,11 +22,6 @@ public class CharacterGPX : MonoBehaviour
 
     private void FlipGPX(bool faceRight)
     {
-        Debug.Log("local scale x: " + transform.localScale.x + ", faceRight: " + faceRight);
-        if (faceRight)
-        {
-
-        }
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         isFacingRight = !faceRight;
     }
