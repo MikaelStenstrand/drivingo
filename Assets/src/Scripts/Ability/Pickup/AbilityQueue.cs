@@ -15,7 +15,21 @@ public class AbilityQueue : MonoBehaviour
     {
         Debug.Log("Enter Queue: tag: " + other.tag);
         // check that tag matches condition
-        EnterQueue(other.gameObject);
+        CharacterState state = other.GetComponent<CharacterController>().CharacterState;
+        if (state == CharacterState.WALKING)
+        {
+            EnterQueue(other.gameObject);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        CharacterState state = other.GetComponent<CharacterController>().CharacterState;
+        Debug.Log("LEFT Queue: tag: " + state);
+        if (state != CharacterState.ABILITY_ACTIVE)
+        {
+            Debug.Log("LEFT Queue for real");
+            LeaveQueue();
+        }
     }
 
     public int GetQueueLength()
@@ -25,15 +39,18 @@ public class AbilityQueue : MonoBehaviour
 
     private void EnterQueue(GameObject GO)
     {
-        GO.GetComponent<CharacterController>().SetCharacterState(CharacterState.IN_QUEUE);
+        GO.GetComponent<CharacterController>().CharacterState = CharacterState.IN_QUEUE;
         queue.Enqueue(GO);
     }
 
     public GameObject LeaveQueue()
     {
+
         if (queue.Count > 0)
         {
-            return (GameObject)queue.Dequeue();
+            GameObject GO = (GameObject)queue.Dequeue();
+            GO.GetComponent<CharacterController>().CharacterState = CharacterState.IDLE;
+            return GO;
         }
         else
         {

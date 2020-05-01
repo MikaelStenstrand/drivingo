@@ -3436,7 +3436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539015114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.71, y: 0, z: 0}
+  m_LocalPosition: {x: -4.44, y: 0, z: 0}
   m_LocalScale: {x: 1.6666665, y: 1.6666665, z: 1.6666665}
   m_Children: []
   m_Father: {fileID: 1808410825}
@@ -3466,7 +3466,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 2.5, y: 3}
   m_EdgeRadius: 0
 --- !u!114 &539015117
 MonoBehaviour:
@@ -9822,7 +9822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756463465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -1.14, z: 0}
+  m_LocalPosition: {x: -6.3, y: -1.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416388516}
@@ -9844,7 +9844,7 @@ MonoBehaviour:
   enableSpawn: 1
   characterSpawnedAmount:
     UseConstant: 1
-    ConstantValue: 3
+    ConstantValue: 0
     Variable: {fileID: 0}
 --- !u!1 &1762679791
 GameObject:
@@ -10092,7 +10092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808410824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.12, y: 0.36, z: 0}
+  m_LocalPosition: {x: 10.12, y: 0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 539015115}
@@ -13385,6 +13385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loop: 1
+  delayAtWaypoint: 1
 --- !u!58 &2101193674
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13398,7 +13399,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.69}
   serializedVersion: 2
   m_Radius: 1
 --- !u!114 &2101193675
@@ -13435,6 +13436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3400ac54a2c39431793471a63b1a2273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupOffset: 1
 --- !u!114 &2101193677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13454,7 +13456,7 @@ MonoBehaviour:
     Variable: {fileID: 0}
   ActiveSpeed:
     UseConstant: 1
-    ConstantValue: 1
+    ConstantValue: 3
     Variable: {fileID: 0}
   Waypoints:
   - {fileID: 539015115}

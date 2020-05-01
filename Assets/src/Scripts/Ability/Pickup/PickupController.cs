@@ -26,29 +26,33 @@ public class PickupController : MonoBehaviour
         if (abilityQueue.GetQueueLength() > 0 && currentPickup == null)
         {
             currentPickup = abilityQueue.LeaveQueue();
-            currentPickup.GetComponent<CharacterController>().SetCharacterState(CharacterState.ABILITY_ACTIVE);
+            currentPickup.GetComponent<CharacterController>().CharacterState = CharacterState.ABILITY_ACTIVE;
             AttachPickupToGO(currentPickup);
-            Debug.Log("PICKUP: " + currentPickup);
         }
     }
 
     private void AttachPickupToGO(GameObject pickup)
     {
         pickup.transform.SetParent(transform);
-        pickup.transform.localPosition = new Vector3(0, transform.localPosition.y - pickupOffset, 0);
+        pickup.transform.localPosition = new Vector3(0, transform.localPosition.y + pickupOffset, 0);
 
         pickup.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+    }
 
+    private void DetatchPickup()
+    {
+        currentPickup.transform.localPosition = new Vector3(0, transform.localPosition.y - pickupOffset * 2, 0);
+        currentPickup.transform.SetParent(null);
+        currentPickup.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+        currentPickup = null;
     }
 
     public void DropOff()
     {
         if (currentPickup != null)
         {
-            currentPickup.GetComponent<CharacterController>().SetCharacterState(CharacterState.WALKING);
-            currentPickup.transform.SetParent(null);
-            currentPickup.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-            currentPickup = null;
+            currentPickup.GetComponent<CharacterController>().CharacterState = CharacterState.WALKING;
+            DetatchPickup();
         }
     }
 
