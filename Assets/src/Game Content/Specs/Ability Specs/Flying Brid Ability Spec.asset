@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beaad612b3a94238b0c1fa24d75d164, type: 3}
   m_Name: Flying Brid Ability Spec
   m_EditorClassIdentifier: 
-  name: Flying Bird
-  description: description
-  characterPrefab: {fileID: 1291749483851068, guid: 18ffb5117c4a29241b055baf2c1dc996,
-    type: 3}
-  defaultSpeed:
+  Name: Flying Bird
+  Description: Description
+  DefaultSpeed:
+    UseConstant: 1
+    ConstantValue: 5
+    Variable: {fileID: 0}
+  ActiveSpeed:
     UseConstant: 1
     ConstantValue: 3
     Variable: {fileID: 0}
-  activeSpeed:
-    UseConstant: 1
-    ConstantValue: 1
-    Variable: {fileID: 0}
+  Condition: Character
+  CharacterPrefab: {fileID: 1291749483851068, guid: 18ffb5117c4a29241b055baf2c1dc996,
+    type: 3}
+  AbilityControllerPrefab: {fileID: 1682613988971726671, guid: 8fb8e1c7a0ed64cc38f473b9364e0215,
+    type: 3}
+  WaypointsPrefab: {fileID: 3903103116954607360, guid: c10abc2cbc7cd40b2a03ee10d2927237,
+    type: 3}
+  WaypointPlacementEvent: {fileID: 11400000, guid: 2033f7ba6562749e1a2669fc485c3d3d,
+    type: 2}

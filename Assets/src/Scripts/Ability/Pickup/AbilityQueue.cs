@@ -13,7 +13,6 @@ public class AbilityQueue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Enter Queue: tag: " + other.tag);
         // check that tag matches condition
         CharacterState state = other.GetComponent<CharacterController>().CharacterState;
         if (state == CharacterState.WALKING)
@@ -24,10 +23,8 @@ public class AbilityQueue : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         CharacterState state = other.GetComponent<CharacterController>().CharacterState;
-        Debug.Log("LEFT Queue: tag: " + state);
         if (state != CharacterState.ABILITY_ACTIVE)
         {
-            Debug.Log("LEFT Queue for real");
             LeaveQueue();
         }
     }
@@ -45,7 +42,6 @@ public class AbilityQueue : MonoBehaviour
 
     public GameObject LeaveQueue()
     {
-
         if (queue.Count > 0)
         {
             GameObject GO = (GameObject)queue.Dequeue();

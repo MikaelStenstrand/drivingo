@@ -1,36 +1,27 @@
-﻿using UnityEngine;
+﻿using Drivingo.Event;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Ability Spec", menuName = "Specs/Ability")]
 public class AbilitySpec : ScriptableObject
 {
-    [SerializeField]
-    new private string name;
-    [SerializeField]
-    private string description;
+    [Header("General information")]
+    public string Name;
+    public string Description;
     public Sprite UISprite { get; private set; }
-    [SerializeField]
-    private GameObject characterPrefab;
-    [SerializeField]
-    private FloatReference defaultSpeed;
-    [SerializeField]
-    private FloatReference activeSpeed;
-
-
-    // placement effect
-    private string condition = "Character";
-
-    private Vector3 positionOutsideOfScreen;
-
-    private void OnEnable()
-    {
-        positionOutsideOfScreen = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-    }
+    public FloatReference DefaultSpeed;
+    public FloatReference ActiveSpeed;
+    public string Condition = "Character";
+    [Header("Game Objects")]
+    public GameObject CharacterPrefab;
+    public GameObject AbilityControllerPrefab;
+    public GameObject WaypointsPrefab;
+    [Header("Events")]
+    public GameEvent WaypointPlacementEvent;
 
     public void InitAbility()
     {
-        GameObject GO = Instantiate(characterPrefab, positionOutsideOfScreen, Quaternion.identity);
-        AbilityCreator abilityCreator = GO.AddComponent(typeof(AbilityCreator)) as AbilityCreator;
-        abilityCreator.condition = condition;
+        GameObject GO = new GameObject("AbilityCreator", typeof(AbilityCreator));
+        GO.GetComponent<AbilityCreator>().setAbilitySpec(this);
     }
 
 }

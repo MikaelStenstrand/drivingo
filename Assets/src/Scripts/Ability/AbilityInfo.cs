@@ -6,9 +6,9 @@
 public class AbilityInfo : MonoBehaviour
 {
     [Header("Runtime data for the ability")]
-    //new public string name;
-    //public string description;
-    public string condition;
+    public string AbilityName;
+    public string Description;
+    public string Condition;
     public FloatReference DefaultSpeed = new FloatReference();
     public FloatReference ActiveSpeed = new FloatReference();
     public Transform[] Waypoints;
