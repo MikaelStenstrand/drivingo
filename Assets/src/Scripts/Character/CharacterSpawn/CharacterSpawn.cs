@@ -5,26 +5,20 @@ public class CharacterSpawn : MonoBehaviour
 {
     [SerializeField]
     private LevelSpec levelSpec;
-
     [SerializeField]
     private bool enableSpawn = true;
-
     [SerializeField]
     private FloatReference characterSpawnedAmount;
 
-    private void Awake()
+    private bool coroutineActive = false;
+
+    private void Update()
     {
-        if (enableSpawn)
+        if (ContinueCoroutine() && !coroutineActive)
         {
             StartCoroutine(SpawnCharactersCoroutine());
         }
     }
-
-    private void Update()
-    {
-        // if enable spawn false --> true, start coroutine again
-    }
-
 
     private void spawnCharacter()
     {
@@ -36,6 +30,11 @@ public class CharacterSpawn : MonoBehaviour
         }
     }
 
+    private bool ContinueCoroutine()
+    {
+        return enableSpawn && (characterSpawnedAmount.Value < levelSpec.SpawnAmount.Value);
+    }
+
     private void SetCharacterLocationOnSpawn(GameObject characterGO)
     {
         characterGO.transform.position = gameObject.transform.position;
@@ -43,12 +42,14 @@ public class CharacterSpawn : MonoBehaviour
 
     IEnumerator SpawnCharactersCoroutine()
     {
+        coroutineActive = true;
         yield return new WaitForSeconds(levelSpec.SpawnFrequencyInSeconds.Value);
-        while (enableSpawn && (characterSpawnedAmount.Value < levelSpec.SpawnAmount.Value))
+        while (ContinueCoroutine())
         {
             spawnCharacter();
             yield return new WaitForSeconds(levelSpec.SpawnFrequencyInSeconds.Value);
         }
+        coroutineActive = false;
     }
 
 
