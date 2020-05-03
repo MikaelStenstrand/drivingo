@@ -8,12 +8,14 @@ public class AbilityWaypoint : MonoBehaviour
     private SpriteRenderer sprite;
     private LeanSelectable leanSelectable;
     private LeanDragTranslate leanDrag;
+    private AbilityQueue abilityQueue;
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         leanSelectable = GetComponent<LeanSelectable>();
         leanDrag = GetComponent<LeanDragTranslate>();
+        abilityQueue = GetComponentInParent<AbilityQueue>();
         EnableComponents(false);
     }
 
@@ -26,6 +28,10 @@ public class AbilityWaypoint : MonoBehaviour
     {
         EnableComponents(false);
         isWaypointSet = true;
+        if (abilityQueue != null)
+        {
+            abilityQueue.IsQueueActive = true;
+        }
     }
 
     private void EnableComponents(bool active)

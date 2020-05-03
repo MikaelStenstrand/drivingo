@@ -4,7 +4,7 @@ using UnityEngine;
 public class AbilityQueue : MonoBehaviour
 {
     private Queue queue;
-    //private int allowedQueueSize;
+    public bool IsQueueActive = false;
 
     private void Awake()
     {
@@ -13,19 +13,27 @@ public class AbilityQueue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // check that tag matches condition
-        CharacterState state = other.GetComponent<CharacterController>().CharacterState;
-        if (state == CharacterState.WALKING)
+        if (IsQueueActive)
         {
-            EnterQueue(other.gameObject);
+            // check that tag matches condition
+            CharacterState state = other.GetComponent<CharacterController>().CharacterState;
+            if (state == CharacterState.WALKING)
+            {
+                Debug.Log("ENTER QUEUE");
+                EnterQueue(other.gameObject);
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        CharacterState state = other.GetComponent<CharacterController>().CharacterState;
-        if (state != CharacterState.ABILITY_ACTIVE)
+        if (IsQueueActive)
         {
-            LeaveQueue();
+            CharacterState state = other.GetComponent<CharacterController>().CharacterState;
+            if (state != CharacterState.ABILITY_ACTIVE)
+            {
+                Debug.Log("Leave QUEUE");
+                LeaveQueue();
+            }
         }
     }
 

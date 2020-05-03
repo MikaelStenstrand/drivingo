@@ -1,6 +1,4 @@
-﻿using System;
-using Drivingo.Event;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Drivingo.Ability
 {
@@ -9,37 +7,11 @@ namespace Drivingo.Ability
         [SerializeField]
         private BoolReference abilityWaypointPlacementProcedureActive;
 
-        // general things for setting up waypoints
-        // Guidance UI
         [SerializeField]
         private BoolReference setWaypointPlacement;
 
         private AbilityInfo abilityInfo;
         private int currentWaypointIndex = 0;
-
-
-        /*
-            - disable sprites
-            - EVENT: Slow motion
-                ::GameSpeedController
-                    - listen to (true) abilityWaypointPlacementProcedureActive
-                    - slow down
-                    - listen to (false) abilityWaypointPlacementProcedureActive
-                    - normal speed
-
-            - START
-                - EVENT: 
-                    guidance UI
-                    show sprite
-                - Press button / double press = place waypoint
-            - DESTINATION
-                - EVENT: 
-                    guidance UI
-                    enable sprite
-                - Press button / double press = place waypoint
-            - EVENT: done - speed back to normal
-
-        */
 
         private void Update()
         {
@@ -48,6 +20,7 @@ namespace Drivingo.Ability
                 if (IsAllWaypintsSet())
                 {
                     abilityWaypointPlacementProcedureActive.Value = false;
+                    // add visualization of newly created ability
                 }
                 else
                 {
@@ -100,9 +73,5 @@ namespace Drivingo.Ability
             }
         }
 
-
-
-
     }
-
 }
